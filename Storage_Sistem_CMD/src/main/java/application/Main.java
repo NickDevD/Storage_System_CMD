@@ -1,3 +1,8 @@
+package application;
+import entities.Controller;
+import entities.Product;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -6,9 +11,9 @@ public class Main {
         Controller con = new Controller();
 
         System.out.println("\n----Storage System----");
-
+    try {
         boolean running = true;
-        while (running){
+        while (running) {
             System.out.println("-------------------------\n");
             System.out.println("Select Options");
             System.out.println("1 - Add Product");
@@ -20,7 +25,7 @@ public class Main {
             System.out.print("Enter option: ");
 
             int option = in.nextInt();
-            switch (option){
+            switch (option) {
                 case 1:
                     System.out.println("\n-------------------------\n");
                     System.out.print("Enter product ID: ");
@@ -28,8 +33,8 @@ public class Main {
                     System.out.println("\n-------------------------\n");
                     System.out.print("Enter product name: ");
                     String name = in.next();
-                    System.out.println("\n-------------------------\n");
                     Product p = new Product(id, name);
+                    System.out.println("\n-------------------------\n");
                     con.addProduct(p);
                     break;
                 case 2:
@@ -49,15 +54,24 @@ public class Main {
                 case 4:
                     System.out.println("\n-------------------------\n");
                     con.listProducts();
+                    break;
                 case 5:
                     running = false;
                     System.out.println("\n-------------------------\n");
                     System.out.println("Exiting system...");
                     System.out.println("Finish");
                     break;
+                default:
+                    System.out.println("\n-------------------------\n");
+                    System.out.println("Invalid option!");
+                    break;
             }
 
         }
         in.close();
+            } catch (InputMismatchException e) {
+            System.out.println(e.getMessage());
+            in.nextLine();
+        }
     }
 }
