@@ -1,6 +1,6 @@
 # Storage System CMD
 
-Projeto que simula um sistem de controle de estoque com as funções básica de adicionar, remover, consultar e listar produtos.
+Projeto que simula um sistema de controle de estoque com as funções básica de adicionar, remover, consultar e listar produtos.
 
 ## ☕ Funcionalidades
 
